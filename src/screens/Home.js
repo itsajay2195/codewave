@@ -4,7 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 import HeaderTab from '../components/HeaderTab'
 import FeedCard from '../components/home/FeedCard'
 
-export default function Home() {
+export default function Home({navigation}) {
     const [feedData,setFeedData]=useState([])
     const [activeTab,setActiveTab] = useState("All")
 
@@ -28,7 +28,7 @@ export default function Home() {
                 <HeaderTab activeTab={activeTab}  setActiveTab={setActiveTab}/>
             </View>
             <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
-                <FeedCard feedData={feedData}/>
+                <FeedCard feedData={feedData} navigation={navigation}/>
             </ScrollView>
         </SafeAreaView>
     )

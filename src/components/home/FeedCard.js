@@ -2,20 +2,14 @@ import React from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-export default function FeedCard(props) {
+export default function FeedCard({navigation,...props}) {
   return (
-    <>
+    <View>
       {props.feedData.map((feed, index) => (
         <TouchableOpacity key={index} activeOpacity={1} style={{ marginBottom: 30 }}
-          // onPress={(()=>navigation.navigate('Restaurant Details',{
-          //   name:restaurant.name,
-          //   image:restaurant.image_url,
-          //   reviews:restaurant.reviews,
-          //   price:restaurant.price,
-          //   rating:restaurant.rating,
-          //   categories:restaurant.categories
-          // }))}
-          onPress={() => console.warn('clicked')}
+          onPress={(()=>navigation.navigate('Details',{
+            feedData:feed
+          }))}
         >
 
           <View style={{ marginTop: 10, padding: 15, backgroundColor: 'white' }}>
@@ -26,14 +20,14 @@ export default function FeedCard(props) {
           </View>
 
         </TouchableOpacity>))}
-    </>
+    </View>
   )
 }
 
 
 
 const FeedImage = (props) => (
-  <>
+  <View>
     <Image source={{ uri: props.image }}
       style={{ height: 180, width: '100%' }}
 
@@ -41,7 +35,7 @@ const FeedImage = (props) => (
     <TouchableOpacity style={{ position: "absolute", right: 20, top: 20 }}>
       <MaterialCommunityIcons name="bookmark" size={25} color="#fff" />
     </TouchableOpacity>
-  </>
+  </View>
 )
 
 const FeedInfo = (props) => (

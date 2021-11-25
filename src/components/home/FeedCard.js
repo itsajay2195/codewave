@@ -46,17 +46,17 @@ const FeedInfo = (props) => (
     <View style={{ marginStart:'4%' ,borderBottomWidth: 0.5,marginBotton: 10, borderColor: 'white', width: '100%' }} />
     <Divider width={1}></Divider>
     <View style={{ flexDirection: 'row', height: 30,width:300, justifyContent: "space-between",marginTop:5 }}>
-          <View style={{flexDirection:'row'}}>
+          <TouchableOpacity style={{flexDirection:'row'}}>
             <MaterialCommunityIcons name="comment-outline" size={25} color="#fff" />
             <Text style={{textAlign:'center',left:5, color:'grey',fontSize:16}} >{props.data.comment_count}</Text>
-          </View>
-          <View style={{flexDirection:'row'}}>
+          </TouchableOpacity>
+          <TouchableOpacity style={{flexDirection:'row'}}>
             <MaterialCommunityIcons name="heart" size={25} color="red" />
             <Text style={{textAlign:'center',left:5,color:'white'}} >21</Text>
-          </View>
-          <View style={{flexDirection:'row'}}>
+          </TouchableOpacity>
+          <TouchableOpacity style={{flexDirection:'row'}}>
             <MaterialCommunityIcons name="upload" size={25} color="white" />
-          </View>
+          </TouchableOpacity>
     </View>
     
   </View>

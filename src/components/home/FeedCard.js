@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { Divider } from 'react-native-elements/dist/divider/Divider'
 
 export default function FeedCard({navigation,...props}) {
   return (
@@ -13,7 +14,6 @@ export default function FeedCard({navigation,...props}) {
         >
 
           <View style={{padding:7, backgroundColor: 'white' }}>
-            {console.warn}
             <FeedImage image={feed.thumbnail} />
             <FeedInfo data={feed} />
             {/* rating={restaurant.rating} */}
@@ -43,7 +43,8 @@ const FeedInfo = (props) => (
     <View>
       <Text numberOfLines={1} style={{ paddingHorizontal: 20, paddingBottom: 10, fontSize: 15, fontWeight: 'bold', color: 'white' }}>{props.data.title}</Text>
     </View>
-    <View style={{ borderBottomWidth: 1, marginLeft: 40, marginBotton: 10, borderColor: 'white', width: '100%' }} />
+    <View style={{ marginStart:'4%' ,borderBottomWidth: 0.5,marginBotton: 10, borderColor: 'white', width: '100%' }} />
+    <Divider width={1}></Divider>
     <View style={{ flexDirection: 'row', height: 30,width:300, justifyContent: "space-between",marginTop:5 }}>
           <View style={{flexDirection:'row'}}>
             <MaterialCommunityIcons name="comment-outline" size={25} color="#fff" />

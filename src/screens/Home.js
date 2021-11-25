@@ -8,10 +8,16 @@ export default function Home({ navigation }) {
 
     const [feedData, setFeedData] = useState([])
     const [activeTab, setActiveTab] = useState("All")
+    const [showSearchBar, setShowSearchBar] = useState(false)
+    const [searchText, setSearchText] = useState('')
+
+
+    const searchItem = ()=>{
+        setFeedData(feedData.filter(item=>item.author['name'].toLowerCase().includes(searchText.toLowerCase())))
+    }
 
     const getFeed = () => {
         const base_url = `https://cw-tech.herokuapp.com/feed.json`;
-
         return fetch(base_url)
             .then(res => res.json())
             .then(json => activeTab === 'All' ? setFeedData(json.feed) : setFeedData(json.feed.filter((feed) =>
@@ -24,9 +30,14 @@ export default function Home({ navigation }) {
     }, [activeTab])// this hook will execute whenever the value of the state  "activeTab"is changed.
 
     return (
-        <SafeAreaView style={{ backgroundColor: 'pink', flex: 0, }}>
+        // flex:0 is used to make the screen full and hide the bootom of the safeareaview
+        // or we can skipp mentioning the flex property itself
+        <SafeAreaView style={{ backgroundColor: 'pink', flex: 0 }}>
             <View style={{ backgroundColor: 'pink' }}>
-                <HeaderTab activeTab={activeTab} setActiveTab={setActiveTab} />
+                <HeaderTab activeTab={activeTab} setActiveTab={setActiveTab} 
+                           showSearchBar={showSearchBar} setShowSearchBar={setShowSearchBar}
+                            searchText ={searchText} setSearchText={setSearchText}
+                            onPress={searchItem} clear={getFeed}/>
             </View>
 
             <ScrollView style={{ backgroundColor: 'white' }} showsVerticalScrollIndicator={false}>
@@ -35,6 +46,3 @@ export default function Home({ navigation }) {
         </SafeAreaView>
     )
 }
-{/* <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
-
-</ScrollView> */}

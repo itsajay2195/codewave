@@ -6,7 +6,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
 export default function HeaderTabs({ activeTab, setActiveTab,showSearchBar,setShowSearchBar,searchText,setSearchText,onPress,clear }) {
-    // const [activeTab,setActiveTab]= useState('Delivery')
 
     return (
         <View>
@@ -25,7 +24,7 @@ export default function HeaderTabs({ activeTab, setActiveTab,showSearchBar,setSh
                 </View>
                 
                 :<>
-                <Text style={{fontSize: 15, fontWeight: '800',color:'white'}}>Trending</Text>
+                <Text style={{fontSize: 15, fontWeight: '800',color:'white'}}>{activeTab}</Text>
                
                 </>}
             <View style={{flexDirection:'row'}}>
@@ -42,10 +41,22 @@ export default function HeaderTabs({ activeTab, setActiveTab,showSearchBar,setSh
             </View>
                 
             </View>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-                <HeaderButton text="All" btnColor="black" textcolor="white" activeTab={activeTab} setActiveTab={setActiveTab}></HeaderButton>
-                <HeaderButton text="Article" btnColor="black" textcolor="white" activeTab={activeTab} setActiveTab={setActiveTab}></HeaderButton>
-                <HeaderButton text="Video" btnColor="white" textcolor="black" activeTab={activeTab} setActiveTab={setActiveTab}></HeaderButton>
+            
+            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', }}>
+                <View style={{borderBottomColor:activeTab === 'Trending' ? "black" : 'transparent',borderBottomWidth:1}}>
+                    <HeaderButton text="Trending" icon= "trending-up"btnColor="black" textcolor="white" activeTab={activeTab} setActiveTab={setActiveTab}/>
+                </View>
+
+                <View style={{borderBottomColor:activeTab === 'Article' ? "black" : 'transparent',borderBottomWidth:1}}>
+                    <HeaderButton text="Article" icon="albums" btnColor="black" textcolor="white" activeTab={activeTab} setActiveTab={setActiveTab}/>
+                </View>
+
+                <View style={{borderBottomColor:activeTab === 'Video' ? "black" : 'transparent',borderBottomWidth:1}}>
+                    <HeaderButton text="Video" icon="film" btnColor="white" textcolor="black" activeTab={activeTab} setActiveTab={setActiveTab}/>
+                </View>
+                
+              
+                
             </View>
         </View>
 
@@ -61,12 +72,13 @@ const HeaderButton = (props) => {
             margin: 5,
             paddingVertical: 6,
             paddingHorizontal: 16,
-            borderRadius: 30
+            borderRadius: 30,
+            
         }}
             onPress={() => props.setActiveTab(props.text)}
 
-        >
-            <Text style={{ color: props.activeTab === props.text ? "white" : "black", fontSize: 15, fontWeight: '800' }}>{props.text}</Text>
+        >   
+            <Ionicons style={{ color: props.activeTab === props.text ? "white" : "black"}}  name={props.icon} size={20} color={'white'}></Ionicons>
         </TouchableOpacity>
 
 

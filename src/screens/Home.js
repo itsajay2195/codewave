@@ -7,7 +7,7 @@ import FeedCard from '../components/home/FeedCard'
 export default function Home({ navigation }) {
 
     const [feedData, setFeedData] = useState([])
-    const [activeTab, setActiveTab] = useState("All")
+    const [activeTab, setActiveTab] = useState("Trending")
     const [showSearchBar, setShowSearchBar] = useState(false)
     const [searchText, setSearchText] = useState('')
 
@@ -20,7 +20,7 @@ export default function Home({ navigation }) {
         const base_url = `https://cw-tech.herokuapp.com/feed.json`;
         return fetch(base_url)
             .then(res => res.json())
-            .then(json => activeTab === 'All' ? setFeedData(json.feed) : setFeedData(json.feed.filter((feed) =>
+            .then(json => activeTab === 'Trending' ? setFeedData(json.feed) : setFeedData(json.feed.filter((feed) =>
                 feed.type.includes(activeTab.toLowerCase()))))
     }
 

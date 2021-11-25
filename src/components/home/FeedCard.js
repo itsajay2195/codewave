@@ -6,13 +6,13 @@ export default function FeedCard({navigation,...props}) {
   return (
     <View>
       {props.feedData.map((feed, index) => (
-        <TouchableOpacity key={index} activeOpacity={1} style={{ marginBottom: 30 }}
+        <TouchableOpacity key={index} activeOpacity={1} 
           onPress={(()=>navigation.navigate('Details',{
             feedData:feed
           }))}
         >
 
-          <View style={{ marginTop: 10, padding: 15, backgroundColor: 'white' }}>
+          <View style={{padding:7, backgroundColor: 'white' }}>
             {console.warn}
             <FeedImage image={feed.thumbnail} />
             <FeedInfo data={feed} />
@@ -29,7 +29,7 @@ export default function FeedCard({navigation,...props}) {
 const FeedImage = (props) => (
   <View>
     <Image source={{ uri: props.image }}
-      style={{ height: 180, width: '100%' }}
+      style={{ borderRadius:5,height: 180, width: '100%' }}
 
     ></Image>
     <TouchableOpacity style={{ position: "absolute", right: 20, top: 20 }}>

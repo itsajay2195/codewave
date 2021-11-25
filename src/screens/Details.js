@@ -2,8 +2,9 @@ import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import Article from '../components/details/Article'
 
-export default function Details(props) {
+export default function Details({navigation,...props}) {
     const { feedData} = props.route.params
+
     return (
         <View>
             {feedData.type === 'article' ? <ArticleDetail Data ={feedData}/> : <VideoDetail />}
@@ -23,8 +24,8 @@ const ArticleDetail= (props)=>{
 
 const VideoDetail= ()=>{
     return(
-        <View>
+        <SafeAreaView>
             <Text>Video Detail</Text>
-        </View>
+        </SafeAreaView>
     )
 }

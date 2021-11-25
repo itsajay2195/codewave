@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import Article from '../components/details/Article'
+import VideoFile from '../components/details/VideoFile'
 
 export default function Details({navigation,...props}) {
     const { feedData} = props.route.params
@@ -24,8 +25,8 @@ const ArticleDetail= (props)=>{
 
 const VideoDetail= ()=>{
     return(
-        <SafeAreaView>
-            <Text>Video Detail</Text>
+        <SafeAreaView style={{backgroundColor:'black'}}>
+            <VideoFile/>
         </SafeAreaView>
     )
 }

@@ -13,7 +13,7 @@ export default function HeaderTabs({ activeTab, setActiveTab,showSearchBar,setSh
             <View style={{flexDirection:'row', justifyContent:'space-between',margin:10}}>
                 {showSearchBar ?
                 <View style={{flexDirection:'row',justifyContent:'space-between',borderWidth:0.5, borderRadius:5,padding:5,height:30,width:'90%'}}>
-                    <TextInput placeholder="Search...." style={{color:'white',fontSize:14,fontWeight:'700'}} value={searchText} onChangeText={value=>setSearchText(value)}/>
+                    <TextInput placeholder="Search...." style={{color:'white',width:'90%',fontSize:14,fontWeight:'700'}} value={searchText} onChangeText={value=>setSearchText(value)}/>
                     <TouchableOpacity onPress={()=>{setSearchText('')
                                       clear()}} 
                                       style={{backgroundColor:'white',
@@ -24,19 +24,21 @@ export default function HeaderTabs({ activeTab, setActiveTab,showSearchBar,setSh
                     </TouchableOpacity>
                 </View>
                 
-                :<Text style={{fontSize: 15, fontWeight: '800',color:'white'}}>Trending</Text>}
+                :<>
+                <Text style={{fontSize: 15, fontWeight: '800',color:'white'}}>Trending</Text>
+               
+                </>}
             <View style={{flexDirection:'row'}}>
-                {showSearchBar && 
+                {showSearchBar ?
                 <>
-                <Ionicons onPress={()=>{setShowSearchBar(false) 
+                <Ionicons style={{marginHorizontal:2,justifyContent:'center',borderRadius:10,borderWidth:1,alignSelf:'center'}} onPress={()=>{setShowSearchBar(false) 
                                    setSearchText('') }} 
-                          name="close" size={24} color={'white'}></Ionicons>
+                          name="close" size={15} color={'white'}></Ionicons>
                 <Ionicons  onPress={()=>{onPress()}} 
                           name="search" size={24} color={'white'}></Ionicons></>
-                }
-
-                <Ionicons  onPress={()=>setShowSearchBar(true)} 
-                          name="search" size={24} color={'white'}></Ionicons>
+                :
+                 <Ionicons  onPress={()=>setShowSearchBar(true)} 
+                          name="search" size={24} color={'white'}></Ionicons>}
             </View>
                 
             </View>

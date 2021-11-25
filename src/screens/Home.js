@@ -12,8 +12,8 @@ export default function Home({ navigation }) {
     const [searchText, setSearchText] = useState('')
 
 
-    const searchItem = ()=>{
-        setFeedData(feedData.filter(item=>item.author['name'].toLowerCase().includes(searchText.toLowerCase())))
+    const searchItem = () => {
+        setFeedData(feedData.filter(item => item.author['name'].toLowerCase().includes(searchText.toLowerCase())))
     }
 
     const getFeed = () => {
@@ -34,15 +34,26 @@ export default function Home({ navigation }) {
         // or we can skipp mentioning the flex property itself
         <SafeAreaView style={{ backgroundColor: 'pink', flex: 0 }}>
             <View style={{ backgroundColor: 'pink' }}>
-                <HeaderTab activeTab={activeTab} setActiveTab={setActiveTab} 
-                           showSearchBar={showSearchBar} setShowSearchBar={setShowSearchBar}
-                            searchText ={searchText} setSearchText={setSearchText}
-                            onPress={searchItem} clear={getFeed}/>
+                <HeaderTab activeTab={activeTab} setActiveTab={setActiveTab}
+                    showSearchBar={showSearchBar} setShowSearchBar={setShowSearchBar}
+                    searchText={searchText} setSearchText={setSearchText}
+                    onPress={searchItem} clear={getFeed} />
             </View>
 
-            <ScrollView style={{ backgroundColor: 'white' }} showsVerticalScrollIndicator={false}>
-                <FeedCard feedData={feedData} navigation={navigation} />
-            </ScrollView>
+                {feedData.length > 0 ?
+                    <ScrollView style={{ backgroundColor: 'white' }} showsVerticalScrollIndicator={false}>
+                        <FeedCard feedData={feedData} navigation={navigation} />
+                    </ScrollView>
+                    :
+                    <View style={{backgroundColor:'white',height:'100%',justifyContent:'center',alignItems:'center'}}><Text>No Results found......</Text></View>
+                }
+                
+                
+
+                
+                    
+                
+
         </SafeAreaView>
     )
 }

@@ -36,7 +36,8 @@ export default function Home({ navigation }) {
     return (
         // flex:0 is used to make the screen full and hide the bootom of the safeareaview
         // or we can skipp mentioning the flex property itself
-        <SafeAreaView style={{ backgroundColor: 'pink', flex: 0,paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0 }}>
+        <SafeAreaView style={{ backgroundColor: 'pink', flex: 0,paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0 }}> 
+             {/* Platform.OS === "android" ? StatusBar.currentHeight : 0 = this piece of code is just to ensure that the header is not misplaced on devices with knotch */}
             <View style={{ backgroundColor: 'pink' }}>
                 <HeaderTab activeTab={activeTab} setActiveTab={setActiveTab}
                     showSearchBar={showSearchBar} setShowSearchBar={setShowSearchBar}

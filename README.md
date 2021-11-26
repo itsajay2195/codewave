@@ -53,7 +53,12 @@
   - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
   - Web: Any web browser
 
-## Running the app on real device
+## Running the app on real device(Android and iOS)
+- install the "Expo Go" on your real device from the app/ play store.
+- upon installation of "Expo Go", visit the project link and scan the qr code.
+- The app will be up and running.
+  project url: https://expo.dev/@ajaycnv/feed
+
 
 ## About the project
 
@@ -67,11 +72,8 @@
   - The first section basically displays all types of items(video and article) in a   card view and the section is named Trending.
   - The second section is the Article section which displays only articles.
   - The third section is the Video section which displays only Videos.
-
 - The details screen displays two types of content. If the user clicks on a article item, the details screen will display the article content with a description.
   - If the user clicks on a video item, the details screen will display the video content.
-
 - The home screen has a search bar that can be used to search for any item of a particular section.
-
 - The seach bar gets rest if the user navigates to a different sections of a home screen.
 

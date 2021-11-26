@@ -7,7 +7,7 @@ export default function Details({ navigation, ...props }) {
     const { feedData } = props.route.params
 
     return (
-        <View style={{ flex: 1, backgroundColor: 'black', justifyContent: 'center', alignContent: 'center' }}>
+        <View >
             {feedData.type === 'article' ? <ArticleDetail Data={feedData} /> : <VideoDetail uri={feedData.video_link} />}
         </View>
     )
@@ -25,8 +25,8 @@ const ArticleDetail = (props) => {
 
 const VideoDetail = (props) => {
     return (
-        <SafeAreaView style={{ backgroundColor: 'black' }}>
+        <View style={{height:'100%', backgroundColor:'black', justifyContent: 'center', alignContent: 'center'  }}>
             <VideoFile uri={props.uri} />
-        </SafeAreaView>
+        </View>
     )
 }

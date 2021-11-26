@@ -74,6 +74,6 @@
   - The third section is the Video section which displays only Videos.
 - The details screen displays two types of content. If the user clicks on a article item, the details screen will display the article content with a description.
   - If the user clicks on a video item, the details screen will display the video content.
-- The home screen has a search bar that can be used to search for any item of a particular section.
+- The home screen has a search bar that can be used to search for any item of a particular section. The search bar functionality is implemented for "Author" name only.
 - The seach bar gets rest if the user navigates to a different sections of a home screen.
 

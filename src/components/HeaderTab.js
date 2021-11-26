@@ -33,7 +33,7 @@ export default function HeaderTabs({ activeTab, setActiveTab,showSearchBar,setSh
                 <Ionicons style={{marginHorizontal:2,justifyContent:'center',borderRadius:10,borderWidth:1,alignSelf:'center'}} onPress={()=>{setShowSearchBar(false) 
                                    setSearchText('') }} 
                           name="close" size={15} color={'white'}></Ionicons>
-                <Ionicons  onPress={()=>{onPress()}} 
+                <Ionicons style={{marginHorizontal:1,justifyContent:'center',alignSelf:'center'}} onPress={()=>{ searchText.length>0 && onPress()}} 
                           name="search" size={24} color={'white'}></Ionicons></>
                 :
                  <Ionicons  onPress={()=>setShowSearchBar(true)} 

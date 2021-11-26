@@ -11,8 +11,6 @@ export default function Home({ navigation }) {
     const [showSearchBar, setShowSearchBar] = useState(false)
     const [searchText, setSearchText] = useState('')
     const [loader,setLoader] = useState(false)
-    const [noResults,setNoresults] = useState(false)
-
 
     const searchItem = () => {
         setFeedData(feedData.filter(item => item.author['name'].toLowerCase().includes(searchText.toLowerCase())))

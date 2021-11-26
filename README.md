@@ -55,21 +55,23 @@
 
 ## Running the app on real device
 
-## Adding Native Code
+## About the project
 
-This project can be run from a web browser or the Expo client app. You may find that you want to add more native code later on. You can do this by ejecting the project and rebuilding it yourself.
+- The project is built using Expo[React Native].
+- It is a universal app that can be run on iOS, Android and Web.
+- The app basically has 2 screens.
+  - The first screen is the home screen.
+  - The second screen is the details screen.
+  - The details screen is the screen that is shown when the user clicks on a list item.
+- The home screen ha 3 sections.
+  - The first section basically displays all types of items(video and article) in a   card view and the section is named Trending.
+  - The second section is the Article section which displays only articles.
+  - The third section is the Video section which displays only Videos.
 
-- Run `yarn eject` to create the native projects.
-- You can still run your project in the web browser or Expo client, you just won't be able to access any new native modules you add.
+- The details screen displays two types of content. If the user clicks on a article item, the details screen will display the article content with a description.
+  - If the user clicks on a video item, the details screen will display the video content.
 
-## Publishing
+- The home screen has a search bar that can be used to search for any item of a particular section.
 
-- Deploy the native app to the App store and Play store using this guide: [Deployment](https://docs.expo.dev/distribution/app-stores/).
-- Deploy the website using this guide: [Web deployment](https://docs.expo.dev/distribution/publishing-websites/).
-
-## 📝 Notes
-
-- Learn more about [Universal React](https://docs.expo.dev/).
-- See what API and components are [available in the React runtimes](https://docs.expo.dev/versions/latest/).
-- Find out more about developing apps and websites: [Guides](https://docs.expo.dev/guides/).
+- The seach bar gets rest if the user navigates to a different sections of a home screen.
 

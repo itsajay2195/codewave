@@ -8,7 +8,7 @@ export default function Details({navigation,...props}) {
 
     return (
         <View>
-            {feedData.type === 'article' ? <ArticleDetail Data ={feedData}/> : <VideoDetail />}
+            {feedData.type === 'article' ? <ArticleDetail Data ={feedData}/> : <VideoDetail uri ={feedData.video_link} />}
         </View>
     )
 }
@@ -23,10 +23,10 @@ const ArticleDetail= (props)=>{
     )
 }
 
-const VideoDetail= ()=>{
+const VideoDetail= (props)=>{
     return(
         <SafeAreaView style={{backgroundColor:'black'}}>
-            <VideoFile/>
+            <VideoFile uri={props.uri}/>
         </SafeAreaView>
     )
 }

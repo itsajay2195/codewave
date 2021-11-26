@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, SafeAreaView,ActivityIndicator,StatusBar,Platform } from 'react-native'
+import { View, Text, SafeAreaView, ActivityIndicator, StatusBar, Platform } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import HeaderTab from '../components/HeaderTab'
 import FeedCard from '../components/home/FeedCard'
@@ -10,11 +10,11 @@ export default function Home({ navigation }) {
     const [activeTab, setActiveTab] = useState("Trending")
     const [showSearchBar, setShowSearchBar] = useState(false)
     const [searchText, setSearchText] = useState('')
-    const [loader,setLoader] = useState(false)
+    const [loader, setLoader] = useState(false)
 
     const searchItem = () => {
         setFeedData(feedData.filter(item => item.author['name'].toLowerCase().includes(searchText.toLowerCase())))
-        
+
     }
 
     const getFeed = () => {
@@ -25,7 +25,7 @@ export default function Home({ navigation }) {
             .then(json => activeTab === 'Trending' ? setFeedData(json.feed) : setFeedData(json.feed.filter((feed) =>
                 feed.type.includes(activeTab.toLowerCase()))))
             .then(() => setTimeout(() => setLoader(false), 3000))
-            
+
     }
 
 
@@ -36,27 +36,27 @@ export default function Home({ navigation }) {
     return (
         // flex:0 is used to make the screen full and hide the bootom of the safeareaview
         // or we can skipp mentioning the flex property itself
-        <SafeAreaView style={{ backgroundColor: 'pink', flex: 0,paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0 }}> 
-             {/* Platform.OS === "android" ? StatusBar.currentHeight : 0 = this piece of code is just to ensure that the header is not misplaced on devices with knotch */}
+        <SafeAreaView style={{ backgroundColor: 'pink', flex: 0, paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0 }}>
+            {/* Platform.OS === "android" ? StatusBar.currentHeight : 0 = this piece of code is just to ensure that the header is not misplaced on devices with knotch */}
             <View style={{ backgroundColor: 'pink' }}>
                 <HeaderTab activeTab={activeTab} setActiveTab={setActiveTab}
                     showSearchBar={showSearchBar} setShowSearchBar={setShowSearchBar}
                     searchText={searchText} setSearchText={setSearchText}
                     onPress={searchItem} clear={getFeed} />
             </View>
-                {feedData.length > 0 ?
-                    <ScrollView style={{ backgroundColor: 'white' }} showsVerticalScrollIndicator={false}>
-                        <FeedCard feedData={feedData} navigation={navigation} />
-                    </ScrollView>
-                    :
-                    <View style={{backgroundColor:'white',height:'100%',justifyContent:'center',alignItems:'center'}}><Text>{loader?<ActivityIndicator size="large" color="pink" />:'No Results found'}</Text></View>
-                }
-                
-                
+            {feedData.length > 0 ?
+                <ScrollView style={{ backgroundColor: 'white' }} showsVerticalScrollIndicator={false}>
+                    <FeedCard feedData={feedData} navigation={navigation} />
+                </ScrollView>
+                :
+                <View style={{ backgroundColor: 'white', height: '100%', justifyContent: 'center', alignItems: 'center' }}><Text>{loader ? <ActivityIndicator size="large" color="pink" /> : 'No Results found'}</Text></View>
+            }
 
-                
-                    
-                
+
+
+
+
+
 
         </SafeAreaView>
     )

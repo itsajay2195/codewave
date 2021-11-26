@@ -17,7 +17,6 @@ export default function FeedCard({navigation,...props}) {
           <View style={{padding:7, backgroundColor: 'white' }}>
             <FeedImage image={feed.thumbnail} />
             <FeedInfo data={feed} />
-            {/* rating={restaurant.rating} */}
           </View>
 
         </TouchableOpacity>))}

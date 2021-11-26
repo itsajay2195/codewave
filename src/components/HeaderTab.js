@@ -12,7 +12,8 @@ export default function HeaderTabs({ activeTab, setActiveTab, showSearchBar, set
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 10 }}>
                 {showSearchBar ?
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', borderWidth: 0.5, borderRadius: 5, padding: 5, height: 30, width: '90%' }}>
-                        <TextInput placeholder="Search...." style={{ color: 'white', width: '90%', fontSize: 14, fontWeight: '700' }} value={searchText} onChangeText={value => setSearchText(value)} />
+                        <TextInput placeholder="Search...." style={{ color: 'white', width: '90%', fontSize: 14, fontWeight: '700' }} value={searchText} onChangeText={value => setSearchText(value)} 
+                                    onSubmitEditing={()=>{searchText.length > 0 && onPress()}}/>
                         <TouchableOpacity onPress={() => {
                             setSearchText('')
                             clear()

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, SafeAreaView,ActivityIndicator } from 'react-native'
+import { View, Text, SafeAreaView,ActivityIndicator,StatusBar,Platform } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import HeaderTab from '../components/HeaderTab'
 import FeedCard from '../components/home/FeedCard'
@@ -14,6 +14,7 @@ export default function Home({ navigation }) {
 
     const searchItem = () => {
         setFeedData(feedData.filter(item => item.author['name'].toLowerCase().includes(searchText.toLowerCase())))
+        
     }
 
     const getFeed = () => {
@@ -23,7 +24,7 @@ export default function Home({ navigation }) {
             .then(res => res.json())
             .then(json => activeTab === 'Trending' ? setFeedData(json.feed) : setFeedData(json.feed.filter((feed) =>
                 feed.type.includes(activeTab.toLowerCase()))))
-            .then(() => setLoader(false))
+            .then(() => setTimeout(() => setLoader(false), 3000))
             
     }
 
@@ -35,7 +36,7 @@ export default function Home({ navigation }) {
     return (
         // flex:0 is used to make the screen full and hide the bootom of the safeareaview
         // or we can skipp mentioning the flex property itself
-        <SafeAreaView style={{ backgroundColor: 'pink', flex: 0 }}>
+        <SafeAreaView style={{ backgroundColor: 'pink', flex: 0,paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0 }}>
             <View style={{ backgroundColor: 'pink' }}>
                 <HeaderTab activeTab={activeTab} setActiveTab={setActiveTab}
                     showSearchBar={showSearchBar} setShowSearchBar={setShowSearchBar}
@@ -47,7 +48,7 @@ export default function Home({ navigation }) {
                         <FeedCard feedData={feedData} navigation={navigation} />
                     </ScrollView>
                     :
-                    <View style={{backgroundColor:'white',height:'100%',justifyContent:'center',alignItems:'center'}}><Text>{loader?<ActivityIndicator size="large"/>:'No Results found'}</Text></View>
+                    <View style={{backgroundColor:'white',height:'100%',justifyContent:'center',alignItems:'center'}}><Text>{loader?<ActivityIndicator size="large" color="pink" />:'No Results found'}</Text></View>
                 }
                 
                 

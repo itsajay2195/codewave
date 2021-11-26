@@ -7,7 +7,7 @@ export default function Details({navigation,...props}) {
     const { feedData} = props.route.params
 
     return (
-        <View>
+        <View style={{flex:1,backgroundColor:'black',justifyContent:'center',alignContent:'center'}}>
             {feedData.type === 'article' ? <ArticleDetail Data ={feedData}/> : <VideoDetail uri ={feedData.video_link} />}
         </View>
     )

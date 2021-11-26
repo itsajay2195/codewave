@@ -1,6 +1,8 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import { View, Text, TouchableOpacity, Image,Dimensions } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+
+const { width,height } = Dimensions.get('window');
 
 export default function FeedCard({navigation,...props}) {
   return (
@@ -42,7 +44,7 @@ const FeedInfo = (props) => (
     <View>
       <Text numberOfLines={1} style={{ paddingHorizontal: 20, paddingBottom: 10, fontSize: 15, fontWeight: 'bold', color: 'white' }}>{props.data.title}</Text>
     </View>
-    <View style={{ marginStart:'4%' ,borderBottomWidth: 0.5,marginBotton: 10, borderColor: 'white', width: '100%' }} />
+    <View style={{ marginHorizontal:'2%' ,borderBottomWidth: 0.5,marginBotton: 10, borderColor: 'white', width }} />
     <View style={{ flexDirection: 'row', height: 30,width:300, justifyContent: "space-between",marginTop:5 }}>
           <TouchableOpacity style={{flexDirection:'row'}}>
             <MaterialCommunityIcons name="comment-outline" size={25} color="#fff" />

@@ -30,9 +30,11 @@ export default function HeaderTabs({ activeTab, setActiveTab,showSearchBar,setSh
             <View style={{flexDirection:'row'}}>
                 {showSearchBar ?
                 <>
-                <Ionicons style={{marginHorizontal:2,justifyContent:'center',borderRadius:10,borderWidth:1,alignSelf:'center'}} onPress={()=>{setShowSearchBar(false) 
-                                   setSearchText('') }} 
-                          name="close" size={15} color={'white'}></Ionicons>
+                <TouchableOpacity onPress={()=>{setShowSearchBar(false) 
+                                    setSearchText('') }} style={{marginHorizontal:2,justifyContent:'center',borderRadius:10,borderWidth:1,alignSelf:'center'}}>
+                    <Ionicons name="close" size={15} color={'white'}></Ionicons>
+                </TouchableOpacity>
+                
                 <Ionicons style={{marginHorizontal:1,justifyContent:'center',alignSelf:'center'}} onPress={()=>{ searchText.length>0 && onPress()}} 
                           name="search" size={24} color={'white'}></Ionicons></>
                 :

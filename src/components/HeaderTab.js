@@ -44,15 +44,18 @@ export default function HeaderTabs({ activeTab, setActiveTab,showSearchBar,setSh
             
             <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', }}>
                 <View style={{borderBottomColor:activeTab === 'Trending' ? "black" : 'transparent',borderBottomWidth:1}}>
-                    <HeaderButton text="Trending" icon= "trending-up"btnColor="black" textcolor="white" activeTab={activeTab} setActiveTab={setActiveTab}/>
+                    <HeaderButton text="Trending" icon= "trending-up"btnColor="black" textcolor="white" activeTab={activeTab} setActiveTab={setActiveTab} setShowSearchBar={setShowSearchBar}
+                                   setSearchText={setSearchText}  />
                 </View>
 
                 <View style={{borderBottomColor:activeTab === 'Article' ? "black" : 'transparent',borderBottomWidth:1}}>
-                    <HeaderButton text="Article" icon="albums" btnColor="black" textcolor="white" activeTab={activeTab} setActiveTab={setActiveTab}/>
+                    <HeaderButton text="Article" icon="albums" btnColor="black" textcolor="white" activeTab={activeTab} setActiveTab={setActiveTab}  setShowSearchBar={setShowSearchBar}
+                                   setSearchText={setSearchText}/>
                 </View>
 
                 <View style={{borderBottomColor:activeTab === 'Video' ? "black" : 'transparent',borderBottomWidth:1}}>
-                    <HeaderButton text="Video" icon="film" btnColor="white" textcolor="black" activeTab={activeTab} setActiveTab={setActiveTab}/>
+                    <HeaderButton text="Video" icon="film" btnColor="white" textcolor="black" activeTab={activeTab} setActiveTab={setActiveTab}  setShowSearchBar={setShowSearchBar}
+                                   setSearchText={setSearchText}/>
                 </View>
                 
               
@@ -75,7 +78,12 @@ const HeaderButton = (props) => {
             borderRadius: 30,
             
         }}
-            onPress={() => props.setActiveTab(props.text)}
+            onPress={() => {
+                props.setActiveTab(props.text)
+                props.setShowSearchBar(false)
+                props.setSearchText('')
+                
+            }}  
 
         >   
             <Ionicons style={{ color: props.activeTab === props.text ? "white" : "black"}}  name={props.icon} size={20} color={'white'}></Ionicons>

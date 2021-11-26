@@ -15,6 +15,11 @@
   </a>
 </p>
 
+
+
+
+
+
 ## 🚀 How to use
 
 - Install packages with `yarn` or `npm install`.
@@ -24,6 +29,31 @@
   - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
   - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
   - Web: Any web browser
+
+## 🚀 How to run on emulator (iOS and Android)
+
+1. iOS(macOS):
+  - Go to your project directory.
+  - Run `yarn iOS` will start the expo developer tools on a port from the browser window.
+  - In Split seconds you will see expo automatically open the app in the simulator.
+  - On the first instance expo will be installing the "Expo Go" app on the simulator.
+  - After the successful installation of "Expo Go" you will see the app(project) in the simulator.
+  - If expo fails to open/ recognize the iOS simaltor on your mac, you can go to the browser window on which expo bundler is present and manually run the app on the simulator by clicking "run on iOS simulator".
+
+2. Android:
+  - Go to your project directory.
+  - Run `yarn android` will start the the expo developer tools on a port from the browser window.
+  - You will have to keep the andorid emulator open and running.
+  - Once the emulator is ready, you can go to the browser window on which expo bundler is present and manually run the app on the emulator by clicking "run on Android emulator".
+  - On the first instance expo will be installing the "Expo Go" app on the emulator.
+  - After the successful installation of "Expo Go" you will see the app(project) in the emulator.
+
+- Open the project in a React runtime to try it:
+  - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
+  - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
+  - Web: Any web browser
+
+## Running the app on real device
 
 ## Adding Native Code
 
@@ -42,3 +72,4 @@ This project can be run from a web browser or the Expo client app. You may find 
 - Learn more about [Universal React](https://docs.expo.dev/).
 - See what API and components are [available in the React runtimes](https://docs.expo.dev/versions/latest/).
 - Find out more about developing apps and websites: [Guides](https://docs.expo.dev/guides/).
+

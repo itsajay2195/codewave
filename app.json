@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Feed app Codewave",
+    "slug": "FeedappCodewave",
+    "version": "1.0.0",
+    "android": {
+      "package": "tothecodewave.feedapp"
+    }
+  },
+  "androoid": {
+    "package": "tothecodewave.feedapp"
+  }
+}

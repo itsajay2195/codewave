@@ -4,8 +4,10 @@ import { NavigationContainer } from '@react-navigation/native'
 import Home from './src/screens/Home'
 import Details from './src/screens/Details'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { Provider } from 'react-redux'
+import configureStore from './redux/store'
 
-
+const store = configureStore()
 
 export default function RootNavigation() {
     const Stack = createStackNavigator();
@@ -17,6 +19,7 @@ export default function RootNavigation() {
     }
 
     return (
+        <Provider store={store}> 
             <NavigationContainer>
                 <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
                     <Stack.Screen name='Home' component={Home} options={{title: ''}}/>
@@ -28,6 +31,8 @@ export default function RootNavigation() {
                         headerBackTitleVisible: false }}/>
                 </Stack.Navigator>
             </NavigationContainer>
+        </Provider>
+            
       
     )
 }

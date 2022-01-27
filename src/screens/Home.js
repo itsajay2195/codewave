@@ -51,13 +51,6 @@ export default function Home({ navigation }) {
                 :
                 <View style={{ backgroundColor: 'white', height: '100%', justifyContent: 'center', alignItems: 'center' }}><Text>{loader ? <ActivityIndicator size="large" color="pink" /> : 'No Results found'}</Text></View>
             }
-
-
-
-
-
-
-
         </SafeAreaView>
     )
 }

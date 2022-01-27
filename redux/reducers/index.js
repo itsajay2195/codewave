@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {feedReducer} from './feedReducer';
+import feedReducer from './feedReducer';
 
 let reducers = combineReducers({
     feedReducer: feedReducer

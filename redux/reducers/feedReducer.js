@@ -4,7 +4,7 @@ let defaulState={
     error:false
 }
 
-export let feedReducer = (state=defaulState,action)=>{
+let feedReducer = (state=defaulState,action)=>{
     switch(action.type){
         case 'FETCHING_DATA':{
             let newState = {...state,loader:true}
@@ -27,3 +27,5 @@ export let feedReducer = (state=defaulState,action)=>{
     }
     
 }
+
+export default feedReducer

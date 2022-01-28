@@ -3,6 +3,8 @@ import { View, Text, SafeAreaView, ActivityIndicator, StatusBar, Platform } from
 import { ScrollView } from 'react-native-gesture-handler'
 import HeaderTab from '../components/HeaderTab'
 import FeedCard from '../components/home/FeedCard'
+import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet'
+
 
 export default function Home({ navigation }) {
 
@@ -33,6 +35,15 @@ export default function Home({ navigation }) {
         getFeed()
     }, [activeTab])// this hook will execute whenever the value of the state  "activeTab"is changed.
 
+    const [content,setContent] = useState({})
+    const [height ,setHeight] = useState(1)
+
+    const openBottomModal = ()=>{
+        console.warn('hello')
+        setHeight('97%')
+    }
+
+
     return (
         // flex:0 is used to make the screen full and hide the bootom of the safeareaview
         // or we can skipp mentioning the flex property itself
@@ -46,11 +57,17 @@ export default function Home({ navigation }) {
             </View>
             {feedData.length > 0 ?
                 <ScrollView style={{ backgroundColor: 'white' }} showsVerticalScrollIndicator={false}>
-                    <FeedCard feedData={feedData} navigation={navigation} />
+                    <FeedCard feedData={feedData} navigation={navigation} openBottomModal={openBottomModal} />
                 </ScrollView>
                 :
                 <View style={{ backgroundColor: 'white', height: '100%', justifyContent: 'center', alignItems: 'center' }}><Text>{loader ? <ActivityIndicator size="large" color="pink" /> : 'No Results found'}</Text></View>
             }
+            <BottomSheet snapPoints={[height]}>
+                <BottomSheetScrollView>
+                    <Text>Hi</Text>
+                </BottomSheetScrollView>
+            </BottomSheet>
+            
         </SafeAreaView>
     )
 }

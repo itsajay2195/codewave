@@ -4,14 +4,17 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const { width,height } = Dimensions.get('window');
 
-export default function FeedCard({navigation,...props}) {
+export default function FeedCard({navigation,openBottomModal,...props}) {
   return (
     <View>
       {props.feedData.map((feed, index) => (
         <TouchableOpacity key={index} activeOpacity={1} 
-          onPress={(()=>navigation.navigate('Details',{
-            feedData:feed
-          }))}
+          onPress={(()=>{
+          //   navigation.navigate('Details',{
+          //   feedData:feed
+          // })
+          openBottomModal()
+        })}
         >
 
           <View style={{padding:7, backgroundColor: 'white' }}>

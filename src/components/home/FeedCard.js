@@ -4,7 +4,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const { width,height } = Dimensions.get('window');
 
-export default function FeedCard({navigation,openBottomModal,...props}) {
+export default function FeedCard({navigation,openBottomModal,bottomSheetContent,...props}) {
   return (
     <View>
       {props.feedData.map((feed, index) => (
@@ -14,6 +14,7 @@ export default function FeedCard({navigation,openBottomModal,...props}) {
           //   feedData:feed
           // })
           openBottomModal()
+          bottomSheetContent(feed)
         })}
         >
 

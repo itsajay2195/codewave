@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, SafeAreaView, ActivityIndicator, StatusBar, Platform } from 'react-native'
+import { View, Text, SafeAreaView, ActivityIndicator, StatusBar, Platform,Button } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import HeaderTab from '../components/HeaderTab'
 import FeedCard from '../components/home/FeedCard'
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet'
+
 
 
 export default function Home({ navigation }) {
@@ -39,10 +40,12 @@ export default function Home({ navigation }) {
     const [height ,setHeight] = useState(1)
 
     const openBottomModal = ()=>{
-        console.warn('hello')
-        setHeight('97%')
+        setHeight('85%')
     }
 
+    const bottomSheetContent = (content)=>{
+        setContent(content)
+    }
 
     return (
         // flex:0 is used to make the screen full and hide the bootom of the safeareaview
@@ -57,14 +60,15 @@ export default function Home({ navigation }) {
             </View>
             {feedData.length > 0 ?
                 <ScrollView style={{ backgroundColor: 'white' }} showsVerticalScrollIndicator={false}>
-                    <FeedCard feedData={feedData} navigation={navigation} openBottomModal={openBottomModal} />
+                    <FeedCard feedData={feedData} navigation={navigation} openBottomModal={openBottomModal} bottomSheetContent={bottomSheetContent} />
                 </ScrollView>
                 :
                 <View style={{ backgroundColor: 'white', height: '100%', justifyContent: 'center', alignItems: 'center' }}><Text>{loader ? <ActivityIndicator size="large" color="pink" /> : 'No Results found'}</Text></View>
             }
-            <BottomSheet snapPoints={[height]}>
+            <BottomSheet enablePanDownToClose detached snapPoints={[height]}>
                 <BottomSheetScrollView>
-                    <Text>Hi</Text>
+                    <Text>{content?.author?.name}</Text>
+                    <Button title='Hi' onPress={()=>setHeight(1)}></Button>
                 </BottomSheetScrollView>
             </BottomSheet>
             
